@@ -24,6 +24,7 @@ jobs:
 
   testes:
     needs: [build]
+    runs-on: ubuntu-latest
     permissions:
       security-events: write
       actions: read
