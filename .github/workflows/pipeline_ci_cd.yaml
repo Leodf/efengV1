@@ -14,9 +14,27 @@ jobs:
     steps:
       - name: Git Checkout
         uses: actions/checkout@v4
-
       - name: Setup Java SDK
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: "21"
+      - name: Build with Maven
+        run: mvn clean install
+
+  testes:
+    needs: [build]
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v4
+      - name: Setup Java SDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "21"
+      - name: Testes Unitarios
+        run: mvn test
