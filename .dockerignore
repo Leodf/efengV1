@@ -1,0 +1,37 @@
+# Arquivos e diretórios do Git
+.git
+.gitignore
+.gitattributes
+
+# Diretórios de compilação e dependências
+target/
+!target/*.jar
+.mvn/wrapper/maven-wrapper.jar
+
+# Arquivos de IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.classpath
+.project
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos Docker
+.dockerignore
+docker-compose.yml
+docker-compose.*.yml
+
+# Arquivos de documentação
+README*.md
+HELP.md
+
+# Outros arquivos
+*.log
+*.swp
+*.bak 
