@@ -29,8 +29,7 @@ public class Dispositivo {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "dispositivo_seq")
-    @SequenceGenerator(name = "dispositivo_seq", sequenceName = "seq_dispositivo", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_DISPOSITIVO")
     private Long id;
 

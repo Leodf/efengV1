@@ -1,0 +1,43 @@
+-- Inserções para LIMITE_CONSUMO
+INSERT INTO LIMITE_CONSUMO (LOCALIZACAO, LIMITE_KWH_DIA, DATA_INICIO, DATA_FIM)
+VALUES 
+('Andar 1', 50, '2025-01-01', NULL),
+('Andar 2', 100, '2025-01-01', NULL),
+('Andar 3', 75, '2025-01-01', NULL);
+
+-- Inserções para DISPOSITIVO
+INSERT INTO DISPOSITIVO (NOME, LOCALIZACAO, POTENCIA_WATTS, STATUS, ID_LIMITE)
+VALUES 
+('Ar-condicionado Sala 1', 'Andar 1', 1200, 'ATIVO', 1),
+('Lâmpada Corredor', 'Andar 1', 60, 'ATIVO', 1),
+('Computador Recepção', 'Andar 1', 350, 'ATIVO', 1),
+('Ar-condicionado Sala 2', 'Andar 2', 1500, 'ATIVO', 2),
+('Servidor Principal', 'Andar 3', 800, 'ATIVO', 3);
+
+-- Inserções para SENSOR_IOT
+INSERT INTO SENSOR_IOT (TIPO_SENSOR, DATA_INSTALACAO, ID_DISPOSITIVO)
+VALUES 
+('PRESENCA', '2025-01-01', 1),
+('CONSUMO', '2025-01-01', 1),
+('TEMPERATURA', '2025-01-05', 1),
+('CONSUMO', '2025-01-10', 2),
+('CONSUMO', '2025-01-15', 4),
+('TEMPERATURA', '2025-01-20', 5);
+
+-- Inserções para CONSUMO_ENERGIA
+INSERT INTO CONSUMO_ENERGIA (DATA_HORA, CONSUMO_KWH, ID_DISPOSITIVO)
+VALUES 
+(NOW(), 0.5, 1),
+(DATE_SUB(NOW(), INTERVAL 1 HOUR), 0.4, 1),
+(DATE_SUB(NOW(), INTERVAL 2 HOUR), 0.6, 1),
+(NOW(), 0.05, 2),
+(DATE_SUB(NOW(), INTERVAL 3 HOUR), 0.3, 3),
+(NOW(), 0.7, 4),
+(DATE_SUB(NOW(), INTERVAL 2 HOUR), 0.65, 4),
+(NOW(), 0.4, 5);
+
+-- Inserções para ALERTA_ENERGIA
+INSERT INTO ALERTA_ENERGIA (MENSAGEM, DATA_ALERTA, STATUS, ID_CONSUMO)
+VALUES 
+('Consumo acima do limite no Ar-condicionado Sala 1', NOW(), 'PENDENTE', 3),
+('Consumo excessivo no Servidor Principal', DATE_SUB(NOW(), INTERVAL 6 HOUR), 'RESOLVIDO', 8);

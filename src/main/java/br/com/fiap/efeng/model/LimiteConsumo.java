@@ -23,8 +23,7 @@ import lombok.NoArgsConstructor;
 public class LimiteConsumo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "limite_seq")
-    @SequenceGenerator(name = "limite_seq", sequenceName = "seq_limite", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_LIMITE")
     private Long id;
 

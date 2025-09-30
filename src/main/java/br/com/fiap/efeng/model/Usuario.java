@@ -30,8 +30,7 @@ import lombok.NoArgsConstructor;
 public class Usuario implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuarios_seq")
-    @SequenceGenerator(name = "usuarios_seq", sequenceName = "sq_usuarios", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
     private Long idUsuario;
 

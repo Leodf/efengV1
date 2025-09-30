@@ -25,8 +25,7 @@ import lombok.NoArgsConstructor;
 public class ConsumoEnergia {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "consumo_seq")
-    @SequenceGenerator(name = "consumo_seq", sequenceName = "seq_consumo", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_CONSUMO")
     private Long id;
 

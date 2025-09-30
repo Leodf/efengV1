@@ -31,8 +31,7 @@ public class AlertaEnergia {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "alerta_seq")
-    @SequenceGenerator(name = "alerta_seq", sequenceName = "seq_alerta", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_ALERTA")
     private Long id;
 

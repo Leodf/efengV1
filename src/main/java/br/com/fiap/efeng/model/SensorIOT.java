@@ -25,8 +25,7 @@ import lombok.NoArgsConstructor;
 public class SensorIOT {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sensor_seq")
-    @SequenceGenerator(name = "sensor_seq", sequenceName = "seq_sensor", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_SENSOR")
     private Long id;
 

@@ -17,8 +17,20 @@ services:
       timeout: 5s
       retries: 5
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: root_pass
+    depends_on:
+      - db
   api: # Serviço da aplicação
     build: . # Usa o Dockerfile no diretório atual
+    container_name: api
     ports:
       - "8080:8080" # Mapeia a porta da aplicação
     depends_on: # Aguarda o banco de dados estar saudável
