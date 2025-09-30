@@ -117,12 +117,6 @@
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
 				<version>9.22.3</version>
-				<configuration>
-					<url>jdbc:mysql://localhost:3306/api</url>
-					<user>root</user>
-					<password>root_pass</password>
-					<cleanDisabled>false</cleanDisabled>
-				</configuration>
 				<dependencies>
 					<dependency>
 						<groupId>com.mysql</groupId>
