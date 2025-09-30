@@ -37,3 +37,28 @@ jobs:
           java-version: "21"
       - name: Testes Unitarios
         run: mvn test
+
+  release:
+    name: Criação da release
+    runs-on: ubuntu-latest
+    needs: [testes]
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v4
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME  }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push container image
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/efengv1:v${{ github.run_number }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/efengv1:latest
+          file: ./Dockerfile
