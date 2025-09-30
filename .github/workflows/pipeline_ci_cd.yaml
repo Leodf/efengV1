@@ -1,0 +1,22 @@
+name: Pipeline CI/CD
+run-name: Pipeline CI/CD executada por ${{ github.actor }} em ${{ github.run_number }}
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout
+      - uses: actions/checkout@v4
+
+      - name: Setup Java SDK
+      - uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "21"
