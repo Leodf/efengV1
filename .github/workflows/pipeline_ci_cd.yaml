@@ -1,5 +1,5 @@
 name: Pipeline CI/CD
-run-name: Pipeline CI/CD executada por ${{ github.actor }} em ${{ github.run_number }}
+run-name: Pipeline CI/CD ${{ github.run_number }} executada por ${{ github.actor }}
 
 on:
   workflow_dispatch:
@@ -74,7 +74,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "efengv1-api-prd"
+          app-name: "api-fiap-efengv1-dev"
           slot-name: "production"
           publish-profile: ${{ secrets.AZURE_PROFILE }}
           images: "index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/efengv1:v${{ github.run_number }}"
