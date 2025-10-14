@@ -206,3 +206,11 @@ http.authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
 ```
 
 Os testes são executados automaticamente no pipeline após o build.
+
+## Desafios Encontrados
+
+Durante o desenvolvimento do projeto, identificamos um problema ao tentar migrar o banco de dados do Oracle para o MySQL. Foi necessário adaptar diversos comandos para conseguir subir o banco corretamente, além de ajustar as entidades para evitar conflitos entre os dois bancos. Também tivemos que configurar o Flyway DB para gerenciar as migrações e remover essa responsabilidade do Hibernate, pois isso causava falhas ao implantar o sistema em produção. Apesar de termos um pipeline completo de CI/CD, o deploy não funcionava como esperado até resolvermos essas incompatibilidades.
+
+## Link
+
+https://github.com/Leodf/efengV1
