@@ -20,3 +20,9 @@ Feature: Device Management
     When I request the list of devices
     Then I should receive a list of devices
 
+  Scenario: Get non-existent device
+    Given I am authenticated as an administrator for device management
+    And there is a device with ID 999999
+    When I request device details for ID 999999
+    Then the device response status should be 404
+

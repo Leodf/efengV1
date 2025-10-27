@@ -19,3 +19,9 @@ Feature: Consumption Limit Management
     When I search for limits at location "Building A"
     Then the limit endpoint should respond
 
+  Scenario: Get non-existent limit
+    Given I am authenticated as an administrator for limit management
+    And there is a limit with ID 999999
+    When I request limit details for ID 999999
+    Then the limit response status should be 404
+

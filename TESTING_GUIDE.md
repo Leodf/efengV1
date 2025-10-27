@@ -157,7 +157,7 @@ Todas as classes de definição de etapas foram totalmente implementadas com:
 ✅ `@When`- Solicito a lista de sensores
 ✅ `@When`- Solicito detalhes do sensor para ID
 ✅ `@When`- Procuro sensores com tipo
-✅ `@Then`- o ponto final do sensor deve responder
+✅ `@Then`- o endpoint do sensor deve responder
 
 #### 6. **ConsumoManagementSteps.java**
 ✅ `@Given`- Estou autenticado como administrador para gerenciamento de consumo
@@ -174,7 +174,7 @@ Todas as classes de definição de etapas foram totalmente implementadas com:
 ✅ `@When`- Solicito a lista de limites de consumo
 ✅ `@When`- Solicito detalhes do limite para ID
 ✅ `@When`- Procuro limites no local
-✅ `@Then`- o ponto final do limite deve responder
+✅ `@Then`- o endpoint do limite deve responder
 
 #### 8. **AlertaManagementSteps.java**
 ✅ `@Given`- Estou autenticado como administrador para gerenciamento de alertas

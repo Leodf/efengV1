@@ -20,3 +20,9 @@ Feature: Energy Consumption Management
     When I request consumption records for device ID 1
     Then the consumption endpoint should respond
 
+  Scenario: Get non-existent consumption record
+    Given I am authenticated as an administrator for consumption management
+    And there is a consumption record with ID 999999
+    When I request consumption details for ID 999999
+    Then the consumption response status should be 404
+

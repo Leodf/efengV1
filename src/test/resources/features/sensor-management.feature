@@ -19,3 +19,9 @@ Feature: Sensor Management
     When I search for sensors with type "temperature"
     Then the sensor endpoint should respond
 
+  Scenario: Get non-existent sensor
+    Given I am authenticated as an administrator for sensor management
+    And there is a sensor with ID 999999
+    When I request sensor details for ID 999999
+    Then the sensor response status should be 404
+

@@ -19,3 +19,9 @@ Feature: Energy Alert Management
     When I search for alerts with status "PENDENTE"
     Then the alert endpoint should respond
 
+  Scenario: Get non-existent alert
+    Given I am authenticated as an administrator for alert management
+    And there is an alert with ID 999999
+    When I request alert details for ID 999999
+    Then the alert response status should be 404
+
