@@ -6,21 +6,29 @@ Este projeto agora inclui testes BDD (Desenvolvimento Orientado por Comportament
 
 ## O que foi criado
 
-### 📁 Arquivos de recursos (4 arquivos)
+### 📁 Arquivos de recursos (8 arquivos)
 Localizado em `src/test/resources/features/`:
 
 1. **user-registration.feature** - Registro de usuário com dados válidos/inválidos
 2. **user-login.feature** - Cenários de autenticação do usuário
 3. **user-management.feature** - Operações CRUD para usuários (Admin)
 4. **device-management.feature** - Cenários de gerenciamento de dispositivos IoT
+5. **sensor-management.feature** - Gerenciamento de sensores IoT
+6. **consumo-management.feature** - Monitoramento e gestão do consumo de energia
+7. **limite-management.feature** - Gerenciamento de limites de consumo
+8. **alerta-management.feature** - Gestão de alertas de consumo de energia
 
-### 📁 Classes de definição de etapas (4 arquivos)
+### 📁 Classes de definição de etapas (8 arquivos)
 Localizado em `src/test/java/br/com/fiap/efeng/bdd/`:
 
 1. **UserRegistrationSteps.java**
 2. **UserLoginSteps.java**
 3. **UserManagementSteps.java**
 4. **DeviceManagementSteps.java**
+5. **SensorManagementSteps.java**
+6. **ConsumoManagementSteps.java**
+7. **LimiteManagementSteps.java**
+8. **AlertaManagementSteps.java**
 
 ### 📁 Arquivos de configuração (2 arquivos)
 
@@ -47,13 +55,17 @@ Use tags para executar recursos específicos:
 
 ## Estatísticas de teste
 
-- **Total de arquivos de recursos**: 4
-- **Cenários totais**: 11
+- **Total de arquivos de recursos**: 8
+- **Cenários totais**: ~25 (estimado)
 - **Cenários de teste por área**:
   - Registro de usuário: 2 cenários
   - Login do usuário: 2 cenários
   - Gerenciamento de usuários: 4 cenários
   - Gerenciamento de dispositivos: 3 cenários
+  - Gerenciamento de sensores: 3 cenários
+  - Gestão de consumo: 4 cenários
+  - Gestão de limites: 4 cenários
+  - Gestão de alertas: 3 cenários
 
 ## Principais características
 
@@ -76,7 +88,11 @@ src/test/
     ├── UserRegistrationSteps.java
     ├── UserLoginSteps.java
     ├── UserManagementSteps.java
-    └── DeviceManagementSteps.java
+    ├── DeviceManagementSteps.java
+    ├── SensorManagementSteps.java
+    ├── ConsumoManagementSteps.java
+    ├── LimiteManagementSteps.java
+    └── AlertaManagementSteps.java
 ```
 
 ## Dependências adicionadas
