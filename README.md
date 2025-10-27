@@ -192,26 +192,56 @@ A aplicação utiliza perfis distintos para desenvolvimento (`dev`) e produção
 
 ## 🧪 Testes Automatizados
 
-Os testes são implementados com JUnit 5, Mockito e Spring Boot Test, focando nos controllers e simulando chamadas HTTP com MockMvc.
+Os testes automatizados do projeto abrangem tanto testes unitários (JUnit 5, Mockito, Spring Boot Test) quanto testes BDD completos utilizando **Cucumber**.
 
-### Casos de teste
 
-| Cenário de Teste                | Resultado Esperado   |
-| ------------------------------- | -------------------- |
-| Criar usuário com sucesso       | `201 Created` + JSON |
-| Buscar usuário por ID existente | `200 OK` + JSON      |
-| Listar todos os usuários        | `200 OK` + JSON      |
-| Excluir usuário por ID          | `204 No Content`     |
-| Buscar usuário inexistente      | `404 Not Found`      |
+### 📋 Estrutura dos testes BDD
 
-### Segurança nos testes
+- **Features**: arquivos `.feature` em `src/test/resources/features/` descrevem cenários de negócio usando Gherkin.
+- **Step Definitions**: classes Java em `src/test/java/br/com/fiap/efeng/bdd/` implementam os passos dos cenários.
+- **Runner**: `CucumberTestRunner.java` executa todos os cenários.
+- **Banco de dados H2**: utilizado para isolamento dos testes.
 
-A classe `TestSecurityConfig` desativa autenticação e CSRF para facilitar os testes:
+Exemplo de cenário:
 
-```java
-http.csrf(csrf -> csrf.disable());
-http.sessionManagement(session -> session.disable());
-http.authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
+```gherkin
+Feature: User Registration
+  Scenario: Register a new user with valid data
+    Given I am registering with name "John Doe", email "john@test.com" and password "password123"
+    When I submit the registration
+    Then the registration should complete
+    And the response status should be successful
 ```
 
-Os testes são executados automaticamente no pipeline após o build.
+#### Principais características
+
+- Ambiente isolado (H2)
+- Execução rápida, sem dependências externas
+- Cobertura de todos os métodos HTTP (GET, POST, PUT, DELETE)
+- Segurança simulada com @MockBean para autenticação
+- Fácil extensão para novos cenários
+
+#### Dependências principais de teste
+
+- `cucumber-java`, `cucumber-junit-platform-engine`, `cucumber-spring`
+- `junit-platform-suite`, `h2`, `spring-boot-starter-test`, `mockito`
+
+#### Como executar os testes
+
+Todos os testes BDD:
+
+```bash
+./mvnw test -Dtest=CucumberTestRunner
+```
+
+Executar cenários com tag específica:
+
+```bash
+./mvnw test -Dtest=CucumberTestRunner -Dcucumber.filter.tags="@focus"
+```
+
+Mais detalhes e exemplos: consulte o arquivo [`TESTING_GUIDE.md`](./TESTING_GUIDE.md).
+
+---
+
+🔗 Repositório no GitHub: [https://github.com/Leodf/efengV1](https://github.com/Leodf/efengV1)
