@@ -6,6 +6,15 @@ A automação de processos dentro de uma organização pode trazer eficiência, 
 
 O Projeto em si visa fazer o monitoramento de dispositivos dentro de uma industria ao receber seus dados e utilizando de triggres e procedures dentro do banco de dados para poder ter consistencia dos dados e poder impactar na decisão de quem consome os dados.
 
+## 👥 Integrantes
+Ricardo Rodrigues Cotovasso - RM: 558295
+
+João Pedro Sanson Miguel Benito - RM: 556802
+
+Lucas Person Servollo - RM: 559186
+
+Leonardo de Faveri - RM: 94336
+
 ## 🚀 Como executar localmente com Docker
 
 Para rodar o projeto localmente com Docker e Docker Compose, siga os passos abaixo:
